@@ -1,33 +1,33 @@
 <template>
   <div>
-    <h1>Edit task</h1>
-    <task-form @createOrUpdate="createOrUpdate" :task=this.task></task-form>
+    <h1>Edit beer</h1>
+    <beer-form @createOrUpdate="createOrUpdate" :beer="this.beer"></beer-form>
   </div>
 </template>
 
 <script>
-import taskForm from '../components/TaskForm.vue';
-import { api } from '../helpers/helpers';
+import BeerForm from '../components/BeerForm.vue'
+import { api } from '../helpers/helpers'
 
 export default {
   name: 'edit',
   components: {
-    'task-form': taskForm
+    'beer-form': BeerForm,
   },
-  data: function() {
+  data: function () {
     return {
-      task: {}
-    };
-  },
-  methods: {
-    createOrUpdate: async function(task) {
-      await api.updatetask(task);
-      this.flash('task updated sucessfully!', 'success');
-      this.$router.push(`/tasks/${task._id}`);
+      beer: {},
     }
   },
+  methods: {
+    createOrUpdate: async function (beer) {
+      await api.updatebeer(beer)
+      this.flash('beer updated sucessfully!', 'success')
+      this.$router.push(`/beers/${beer._id}`)
+    },
+  },
   async mounted() {
-    this.task = await api.gettask(this.$route.params.id);
-  }
-};
+    this.beer = await api.getbeer(this.$route.params.id)
+  },
+}
 </script>

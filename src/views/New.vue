@@ -1,24 +1,24 @@
 <template>
   <div>
-    <h1>New task</h1>
-    <task-form @createOrUpdate="createOrUpdate"></task-form>
+    <h1>New beer</h1>
+    <beer-form @createOrUpdate="createOrUpdate"></beer-form>
   </div>
 </template>
 
 <script>
-import taskForm from '../components/TaskForm.vue';
-import { api } from '../helpers/helpers';
+import BeerForm from '../components/BeerForm.vue'
+import { api } from '../helpers/helpers'
 export default {
-  name: 'new-task',
+  name: 'new-beer',
   components: {
-    'task-form': taskForm
+    'beer-form': BeerForm,
   },
   methods: {
-    createOrUpdate: async function(task) {
-      const res = await api.createtask(task);
-      this.flash('task created', 'success');
-      this.$router.push(`/tasks/${res._id}`);
-    }
-  }
-};
+    createOrUpdate: async function(beer) {
+      const res = await api.createbeer(beer)
+      this.flash('beer created', 'success')
+      this.$router.push(`/beers/${res._id}`)
+    },
+  },
+}
 </script>

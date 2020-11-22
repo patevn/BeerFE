@@ -3,13 +3,12 @@
     <div class="ui inverted segment navbar">
       <div class="ui center aligned container">
         <div class="ui large secondary inverted pointing menu compact">
-          <router-link to="/tasks" exact class="item">
-           <i class="tasks icon"></i> Tasks
+          <router-link to="/beers" exact class="item">
+            <i class="beers icon"></i> beers
           </router-link>
-          <router-link to="/tasks/new" class="item">
+          <router-link to="/beers/new" class="item">
             <i class="plus circle icon"></i> New
           </router-link>
-      
         </div>
       </div>
     </div>
@@ -26,8 +25,8 @@
 
 <script>
 export default {
-  name: 'app'
-};
+  name: 'app',
+}
 </script>
 
 <style>
