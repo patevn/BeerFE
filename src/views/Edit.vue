@@ -14,15 +14,18 @@ export default {
   components: {
     'beer-form': BeerForm,
   },
-  data: function () {
+  data: function() {
     return {
       beer: {},
     }
   },
   methods: {
-    createOrUpdate: async function (beer) {
+    createOrUpdate: async function(beer) {
       await api.updatebeer(beer)
-      this.flash('beer updated sucessfully!', 'success')
+      this.flashMessage.info({
+        title: 'success',
+        message: 'beer updated sucessfully',
+      })
       this.$router.push(`/beers/${beer._id}`)
     },
   },

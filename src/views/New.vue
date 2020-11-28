@@ -16,7 +16,10 @@ export default {
   methods: {
     createOrUpdate: async function(beer) {
       const res = await api.createbeer(beer)
-      this.flash('beer created', 'success')
+      this.flashMessage.info({
+        title: 'success',
+        message: 'beer created',
+      })
       this.$router.push(`/beers/${res._id}`)
     },
   },

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
-import VueFlashMessage from 'vue-flash-message'
+import VueFlashMessage from '@smartweb/vue-flash-message'
 
 Vue.use(VueFlashMessage, {
   messageOptions: {
@@ -9,12 +9,14 @@ Vue.use(VueFlashMessage, {
   },
 })
 
-const vm = new Vue()
 const baseURL = 'http://localhost:3000/beers/'
 
 const handleError = fn => (...params) =>
   fn(...params).catch(error => {
-    vm.flash(`${error.response.status}: ${error.response.statusText}`, 'error')
+    console.error(
+      `${error.response.status}: ${error.response.statusText}`,
+      'error'
+    )
   })
 
 export const api = {

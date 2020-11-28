@@ -48,12 +48,15 @@ export default {
     }
   },
   methods: {
-    async onDestroy(id) {
+    onDestroy: async function(id) {
       const sure = window.confirm('Are you sure?')
       if (!sure) return
       await api.deletebeer(id)
-      this.flash('beer deleted sucessfully!', 'success')
-      const newbeers = this.beers.filter((beer) => beer._id !== id)
+      this.flashMessage.info({
+        title: 'success',
+        message: 'beer deleted',
+      })
+      const newbeers = this.beers.filter(beer => beer._id !== id)
       this.beers = newbeers
     },
   },
