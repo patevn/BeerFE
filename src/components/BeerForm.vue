@@ -3,13 +3,13 @@
     <p v-if="errorsPresent" class="error">Please fill out both fields!</p>
 
     <div class="ui labeled input fluid">
-      <div class="ui label"><i class="calendar plus icon"></i>beer</div>
-      <input type="text" placeholder="Enter beer..." v-model="beer.beer1" />
+      <div class="ui label"><i class="calendar plus icon"></i>Beer</div>
+      <input type="text" placeholder="Enter beer..." v-model="beer.beer" />
     </div>
 
     <div class="ui labeled input fluid">
       <div class="ui label"><i class="info circle icon"></i> Details</div>
-      <input type="text" placeholder="Enter Details" v-model="beer.beer2" />
+      <input type="text" placeholder="Enter Details" v-model="beer.details" />
     </div>
 
     <button class="positive ui button">Submit</button>
@@ -25,8 +25,8 @@ export default {
       required: false,
       default: () => {
         return {
-          beer1: '',
-          beer2: '',
+          beer: '',
+          details: '',
         }
       },
     },
@@ -37,8 +37,8 @@ export default {
     }
   },
   methods: {
-    onSubmit: function () {
-      if (this.beer.beer1 === '' || this.beer.beer2 === '') {
+    onSubmit: function() {
+      if (this.beer.beer === '' || this.beer.details === '') {
         this.errorsPresent = true
       } else {
         this.$emit('createOrUpdate', this.beer)

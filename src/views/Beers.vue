@@ -14,8 +14,8 @@
         </tr>
       </thead>
       <tr v-for="(beer, i) in beers" :key="i">
-        <td>{{ beer.beer1 }}</td>
-        <td>{{ beer.beer2 }}</td>
+        <td>{{ beer.beer }}</td>
+        <td>{{ beer.details }}</td>
         <td width="75" class="center aligned">
           <router-link :to="{ name: 'show', params: { id: beer._id } }"
             >Show</router-link

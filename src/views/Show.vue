@@ -4,12 +4,12 @@
 
     <div class="ui labeled input fluid">
       <div class="ui label"><i class="beers icon"></i> beer</div>
-      <input type="text" readonly :value="beer.beer1" />
+      <input type="text" readonly :value="beer.beer" />
     </div>
 
     <div class="ui labeled input fluid">
       <div class="ui label"><i class="info circle icon"></i> Details</div>
-      <input type="text" readonly :value="beer.beer2" />
+      <input type="text" readonly :value="beer.details" />
     </div>
     <div class="actions">
       <router-link
