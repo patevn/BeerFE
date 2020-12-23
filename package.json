@@ -12,6 +12,8 @@
     "@smartweb/vue-flash-message": "^0.6.10",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "semantic-ui-css": "^2.4.1",
     "vue": "^2.6.11",
     "vue-flash-message": "^0.7.2",
