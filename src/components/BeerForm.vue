@@ -11,7 +11,10 @@
       <div class="ui label"><i class="info circle icon"></i> Details</div>
       <input type="text" placeholder="Enter Details" v-model="beer.details" />
     </div>
-
+    <div class="ui labeled input fluid">
+      <div class="ui label"><i class="info circle icon"></i> Details</div>
+      <input type="text" placeholder="Enter rating" v-model="beer.rating" />
+    </div>
     <button class="positive ui button">Submit</button>
   </form>
 </template>
@@ -27,6 +30,7 @@ export default {
         return {
           beer: '',
           details: '',
+          rating: '',
         }
       },
     },
