@@ -3,7 +3,7 @@
     <h1>Show beer</h1>
 
     <div class="ui labeled input fluid">
-      <div class="ui label"><i class="beers icon"></i> beer</div>
+      <div class="ui label"><i class="beer icon"></i> Beer</div>
       <input type="text" readonly :value="beer.beer" />
     </div>
 
@@ -11,7 +11,10 @@
       <div class="ui label"><i class="info circle icon"></i> Details</div>
       <input type="text" readonly :value="beer.details" />
     </div>
-    <div id="app"><stars-rating :config="config"></stars-rating></div>
+    <div v-if="this.beer.rating" class="ui labeled input fluid">
+      <div class="ui label"><i class="star icon"></i> Rating</div>
+      <stars-rating :config="stars"></stars-rating>
+    </div>
     <div class="actions">
       <router-link
         :to="{ name: 'edit', params: { id: this.$route.params.id } }"
@@ -33,17 +36,21 @@ export default {
   data() {
     return {
       beer: '',
-      config: {
-        rating: 1.0,
-        isIndicatorActive: true,
+    }
+  },
+  computed: {
+    stars() {
+      return {
+        rating: this.beer.rating,
+        isIndicatorActive: false,
         style: {
           fullStarColor: '#ed8a19',
-          emptyStarColor: '#737373',
-          starWidth: 100,
-          starHeight: 100,
+          emptyStarColor: '#FFFFFF',
+          starWidth: 20,
+          starHeight: 20,
         },
-      },
-    }
+      }
+    },
   },
   async mounted() {
     this.beer = await api.getbeer(this.$route.params.id)
