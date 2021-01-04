@@ -11,9 +11,19 @@
       <div class="ui label"><i class="info circle icon"></i> Details</div>
       <input type="text" placeholder="Enter Details" v-model="beer.details" />
     </div>
-    <div class="ui labeled input fluid">
+    <div>
       <div class="ui label"><i class="star icon"></i> Rating</div>
-      <input type="text" placeholder="Enter rating" v-model="beer.rating" />
+      <select name="ui selection dropdown" v-model="beer.rating">
+        <option>1</option>
+        <option>1.5</option>
+        <option>2</option>
+        <option>2.5</option>
+        <option>3</option>
+        <option>3.5</option>
+        <option>4</option>
+        <option>4.5</option>
+        <option>5</option>
+      </select>
     </div>
     <button class="positive ui button">Submit</button>
   </form>
