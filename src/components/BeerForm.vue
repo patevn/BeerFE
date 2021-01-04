@@ -11,9 +11,9 @@
       <div class="ui label"><i class="info circle icon"></i> Details</div>
       <input type="text" placeholder="Enter Details" v-model="beer.details" />
     </div>
-    <div>
+    <div class="ui labeled input fluid">
       <div class="ui label"><i class="star icon"></i> Rating</div>
-      <select name="ui selection dropdown" v-model="beer.rating">
+      <select class="ui dropdown" v-model="beer.rating">
         <option>1</option>
         <option>1.5</option>
         <option>2</option>
