@@ -3,7 +3,7 @@
     <p v-if="errorsPresent" class="error">Please fill out both fields!</p>
 
     <div class="ui labeled input fluid">
-      <div class="ui label"><i class="calendar plus icon"></i>Beer</div>
+      <div class="ui label"><i class="beer icon"></i>Beer</div>
       <input type="text" placeholder="Enter beer..." v-model="beer.beer" />
     </div>
 
@@ -12,7 +12,7 @@
       <input type="text" placeholder="Enter Details" v-model="beer.details" />
     </div>
     <div class="ui labeled input fluid">
-      <div class="ui label"><i class="info circle icon"></i> Details</div>
+      <div class="ui label"><i class="star icon"></i> Rating</div>
       <input type="text" placeholder="Enter rating" v-model="beer.rating" />
     </div>
     <button class="positive ui button">Submit</button>
@@ -22,6 +22,7 @@
 <script>
 export default {
   name: 'beer-form',
+  components: {},
   props: {
     beer: {
       type: Object,
@@ -42,7 +43,11 @@ export default {
   },
   methods: {
     onSubmit: function() {
-      if (this.beer.beer === '' || this.beer.details === '') {
+      if (
+        this.beer.beer === '' ||
+        this.beer.details === '' ||
+        this.beer.rating === ''
+      ) {
         this.errorsPresent = true
       } else {
         this.$emit('createOrUpdate', this.beer)
